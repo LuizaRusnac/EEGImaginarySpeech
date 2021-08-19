@@ -1,0 +1,17 @@
+19-Aug-2021 (15:36:02)
+PCA 1s standardized signal before PCA
+ Feature extraction: Spectrum all frequencies 
+ With KNN 11 classes 
+ kval from 1 to 50 
+ max val acc: 0.2126, k max val: 3
+
+
+
+
+19-Aug-2021 (15:54:10)
+NoFilter 1s standardized signal before feature extraction 
+ Feature extraction: Spectrum all frequencies 
+ With KNN 11 classes 
+ kval from 1 to 50 
+ max val acc: 0.1817, k max val: 39
+
