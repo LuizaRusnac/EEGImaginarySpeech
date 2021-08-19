@@ -49,3 +49,16 @@ PCA 1s standardized signal before feature extraction
  kval from 1 to 50 
  max val acc: 0.6186, k max val: 45
 
+
+
+19-Aug-2021 (21:09:41)
+PCA 1s standardized signal before feature extraction 
+Feature extraction: Spectrum all frequencies 
+With CNN, Task: no task 
+LR = 0.00010, layers nr = [64, 32, 32, 16], mask = (2, 2), Act functions in layers: relu 
+Act function in last layer: softmax, Droput: [0.1, 0.1], Regularization: 0.0000 
+Kernel initializer: random_normal, Bias initilizer: random_normal 
+Optimizer: Adam, Loss: MeanSquaredError 
+Train acc after 2 iters: 0.0845 
+Val acc after 2 iters: 0.0902
+
