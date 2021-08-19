@@ -1,5 +1,6 @@
 from sklearn.decomposition import PCA
 import numpy as np
+import numpy.matlib
 
 """
 This module contains:
