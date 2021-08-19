@@ -57,7 +57,7 @@ def task(y, str = 'bilabial'):
 	elif str=='iy':
 		yt[y==0] = 1
 
-	elif str='uw':
+	elif str=='uw':
 		yt[y==1] = 1
 
 	else:
