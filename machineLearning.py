@@ -69,7 +69,7 @@ def knn(xtrain,ytrain,xtest,ytest, kval = [1], flag = 0):
 			plt.savefig("scores_for_kvalues.png")
 			plt.close()
 		if len(kval)==3:
-			xval = np.arange(k[0],k[1],k[2])
+			xval = np.ravel(np.arange(kval[0],kval[1],kval[2]))
 			plt.figure()
 			plt.plot(xval,k)
 			plt.xlabel("K values")
