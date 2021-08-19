@@ -1,12 +1,1 @@
 
-
-
-18-Aug-2021 (13:55:37)
-Knn kmaxim 20, acc 0.5236 
- asta este un exemplu
-
-
-18-Aug-2021 (13:55:56)
-Knn kmaxim 50, acc 0.5324 
- asta este un alt exemplu
-
