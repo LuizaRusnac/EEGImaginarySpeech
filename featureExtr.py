@@ -95,6 +95,7 @@ def spectrumChn(x, fs = 1000, freq = None, nfft = None):
         nfft = x.shape[2]
 
     if freq is None:
+        freq = np.empty((1),dtype = int)
         freq[0] = int(x.shape[2]/2)
     else:
         if len(freq)==1:
