@@ -15,3 +15,19 @@ NoFilter 1s standardized signal before feature extraction
  kval from 1 to 50 
  max val acc: 0.1817, k max val: 39
 
+
+19-Aug-2021 (16:28:32)
+PCA 1s standardized signal before feature extraction 
+ Feature extraction: Spectrum all frequencies 
+ With KNN bilabial task 
+ kval from 1 to 50 
+ max val acc: 0.6353, k max val: 3
+
+
+19-Aug-2021 (16:30:01)
+No filter 1s standardized signal before feature extraction 
+ Feature extraction: Spectrum all frequencies 
+ With KNN bilabial task 
+ kval from 1 to 50 
+ max val acc: 0.6173, k max val: 39
+
