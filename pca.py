@@ -70,7 +70,7 @@ def pcaTransform(X, pcaComp, keep = [0, 2], flag = 0):
 
 	return Xhat
 
-def allDataPca(x, keep = [0, 0]):
+def allDataPca(x, keep = [0, 0], flag = 0):
 	"""
 	This function computes the transformed matrix x of 3D. This function is used to compute sources of channels and eliminate the
 	desired ones over the all records.
@@ -78,6 +78,9 @@ def allDataPca(x, keep = [0, 0]):
 	Input data:
 		x - a 3D matrix [nr. records x nr. channels x nr]
 		keep - 2 element list corresponding to the components desired to keep. From keep[0] to keep[1]
+		flag - takes values 0, 1, 2 or 3. If flag = 0 the data will remain the same. If flag = 1, all observations of the
+		data will be moved to 0 mean. If flag = 2, data will be standardized over features. If flag = 3, data will be
+		normalized over features.
 
 	Output data:
 		xhat - the estimated x matrix after eliminating the desired components
@@ -86,6 +89,6 @@ def allDataPca(x, keep = [0, 0]):
 	for rec,i in zip(x, range(len(x))):
 		print("PCA: Wait... It might takes several minutes! You are at %d/%d"%(i+1,len(x)))
 		comp = pcaComp(rec)
-		xhat[i,:,:] = pcaTransform(rec, comp, keep = keep)
+		xhat[i,:,:] = pcaTransform(rec, comp, keep = keep, flag = flag)
 
 	return xhat
