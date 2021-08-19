@@ -1,0 +1,8 @@
+# The file included: xtrain_lms, ytrain, xtest_lms, ytest
+#
+# Parameters:
+#	- L = 400
+#	- mu = 0.001
+#	- flag = 1
+#	- repeat = 15
+#

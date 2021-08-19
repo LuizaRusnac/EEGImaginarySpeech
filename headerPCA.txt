@@ -1,0 +1,5 @@
+# The file included: xtrain_pca, ytrain_pca, xtest_pca, ytest_pca
+#
+# Eliminate: components 1 and 2 for all signals
+#
+# PCA over 1s window
