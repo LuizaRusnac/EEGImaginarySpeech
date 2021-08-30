@@ -1,0 +1,148 @@
+19-Aug-2021 (15:36:02)
+PCA 1s standardized signal before PCA
+ Feature extraction: Spectrum all frequencies 
+ With KNN 11 classes 
+ kval from 1 to 50 
+ max val acc: 0.2126, k max val: 3
+
+
+
+
+19-Aug-2021 (15:54:10)
+NoFilter 1s standardized signal before feature extraction 
+ Feature extraction: Spectrum all frequencies 
+ With KNN 11 classes 
+ kval from 1 to 50 
+ max val acc: 0.1817, k max val: 39
+
+
+19-Aug-2021 (16:28:32)
+PCA 1s standardized signal before feature extraction 
+ Feature extraction: Spectrum all frequencies 
+ With KNN bilabial task 
+ kval from 1 to 50 
+ max val acc: 0.6353, k max val: 3
+
+
+19-Aug-2021 (16:30:01)
+No filter 1s standardized signal before feature extraction 
+ Feature extraction: Spectrum all frequencies 
+ With KNN bilabial task 
+ kval from 1 to 50 
+ max val acc: 0.6173, k max val: 39
+
+
+19-Aug-2021 (16:34:33)
+No filter 1s standardized signal before feature extraction 
+ Feature extraction: Spectrum all frequencies 
+ With KNN, Task: nasal 
+ kval from 1 to 50 
+ max val acc: 0.6585, k max val: 47
+
+
+
+
+19-Aug-2021 (16:40:18)
+PCA 1s standardized signal before feature extraction 
+ Feature extraction: Spectrum all frequencies 
+ With KNN, Task: nasal 
+ kval from 1 to 50 
+ max val acc: 0.6186, k max val: 45
+
+
+
+19-Aug-2021 (21:09:41)
+PCA 1s standardized signal before feature extraction 
+Feature extraction: Spectrum all frequencies 
+With CNN, Task: no task 
+LR = 0.00010, layers nr = [64, 32, 32, 16], mask = (2, 2), Act functions in layers: relu 
+Act function in last layer: softmax, Droput: [0.1, 0.1], Regularization: 0.0000 
+Kernel initializer: random_normal, Bias initilizer: random_normal 
+Optimizer: Adam, Loss: MeanSquaredError 
+Train acc after 2 iters: 0.0845 
+Val acc after 2 iters: 0.0902
+
+
+20-Aug-2021 (08:34:40)
+PCA 1s standardized signal before feature extraction 
+Feature extraction: Spectrum all frequencies 
+With CNN, Task: no task 
+LR = 0.00010, layers nr = [128, 64, 64, 32], mask = (2, 2), Act functions in layers: relu 
+Act function in last layer: softmax, Droput: [0.1, 0.1], Regularization: 0.0000 
+Kernel initializer: random_normal, Bias initilizer: random_normal 
+Optimizer: Adam, Loss: MeanSquaredError 
+Train acc after 10 iters: 0.0901 
+Val acc after 10 iters: 0.0825
+
+
+20-Aug-2021 (09:31:28)
+PCA 1s standardized signal before feature extraction 
+Feature extraction: Spectrum all frequencies 
+With CNN, Task: no task 
+LR = 0.00001, layers nr = [128, 64, 64, 32], mask = (2, 2), Act functions in layers: relu 
+Act function in last layer: softmax, Droput: [0.1, 0.1], Regularization: 0.0000 
+Kernel initializer: random_normal, Bias initilizer: random_normal 
+Optimizer: Adam, Loss: MeanSquaredError 
+Train acc after 20 iters: 0.1245 
+Val acc after 20 iters: 0.1031
+
+
+20-Aug-2021 (11:03:11)
+PCA 1s standardized signal before feature extraction 
+Feature extraction: Spectrum all frequencies 
+With CNN, Task: no task 
+LR = 0.00001, layers nr = [128, 64, 64, 32], mask = (2, 2), Act functions in layers: relu 
+Act function in last layer: softmax, Droput: [0.1, 0.1], Regularization: 0.0000 
+Kernel initializer: random_normal, Bias initilizer: random_normal 
+Optimizer: Adam, Loss: MeanSquaredError 
+Train acc after 40 iters: 0.1508 
+Val acc after 40 iters: 0.1173
+
+
+20-Aug-2021 (12:10:31)
+PCA 1s standardized signal before feature extraction 
+Feature extraction: Spectrum all frequencies 
+With CNN, Task: no task 
+LR = 0.00001, layers nr = [128, 64, 64, 32], mask = (2, 2), Act functions in layers: relu 
+Act function in last layer: softmax, Droput: [0.1, 0.1], Regularization: 0.0000 
+Kernel initializer: random_normal, Bias initilizer: random_normal 
+Optimizer: Adam, Loss: MeanSquaredError 
+Train acc after 60 iters: 0.1906 
+Val acc after 60 iters: 0.1250
+
+
+20-Aug-2021 (13:14:39)
+PCA 1s standardized signal before feature extraction 
+Feature extraction: Spectrum all frequencies 
+With CNN, Task: no task 
+LR = 0.00001, layers nr = [128, 64, 64, 32], mask = (2, 2), Act functions in layers: relu 
+Act function in last layer: softmax, Droput: [0.1, 0.1], Regularization: 0.0000 
+Kernel initializer: random_normal, Bias initilizer: random_normal 
+Optimizer: Adam, Loss: MeanSquaredError 
+Train acc after 80 iters: 0.2015 
+Val acc after 80 iters: 0.1198
+
+
+20-Aug-2021 (14:41:54)
+PCA 1s standardized signal before feature extraction 
+Feature extraction: Spectrum all frequencies 
+With CNN, Task: no task 
+LR = 0.00001, layers nr = [128, 64, 64, 32], mask = (2, 2), Act functions in layers: relu 
+Act function in last layer: softmax, Droput: [0.1, 0.1], Regularization: 0.0000 
+Kernel initializer: random_normal, Bias initilizer: random_normal 
+Optimizer: Adam, Loss: MeanSquaredError 
+Train acc after 100 iters: 0.1996 
+Val acc after 100 iters: 0.1108
+
+
+20-Aug-2021 (17:16:59)
+No Filter 1s standardized signal before feature extraction 
+Feature extraction: Spectrum all frequencies 
+With CNN, Task: no task 
+LR = 0.00001, layers nr = [128, 64, 64, 32], mask = (2, 2), Act functions in layers: relu 
+Act function in last layer: softmax, Droput: [0.1, 0.1], Regularization: 0.0000 
+Kernel initializer: random_normal, Bias initilizer: random_normal 
+Optimizer: Adam, Loss: MeanSquaredError 
+Train acc after 100 iters: 0.2794 
+Val acc after 100 iters: 0.1173
+
