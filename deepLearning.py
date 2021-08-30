@@ -68,6 +68,7 @@ def CNN(xshape, cls_nr, LR, layers_nr = [64, 32, 32, 16], mask = (2,2), act = 'r
 	Output Data:
 		model - returns the created model
 	"""
+
 	model = models.Sequential()
 	model.add(layers.Conv2D(layers_nr[0], mask, activation = act, input_shape=(xshape[1], xshape[2], xshape[3]), kernel_regularizer=tf.keras.regularizers.l2(R2), kernel_initializer = kernel_initializer, bias_initializer = bias_initializer))
 	model.add(layers.BatchNormalization())
@@ -82,6 +83,7 @@ def CNN(xshape, cls_nr, LR, layers_nr = [64, 32, 32, 16], mask = (2,2), act = 'r
 	    model.add(layers.Dense(cls_nr, kernel_initializer = kernel_initializer, bias_initializer = bias_initializer))
 	else:
 	    model.add(layers.Dense(cls_nr, activation = llact,kernel_initializer = kernel_initializer, bias_initializer = bias_initializer))
+
 	model.compile(tf.optimizers.Adam(LR),loss = tf.keras.losses.MeanSquaredError(),metrics=['accuracy'])
 
 	return model

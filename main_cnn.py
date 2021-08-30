@@ -4,12 +4,14 @@ import deepLearning as dl
 import matplotlib.pyplot as plt
 import preprocessing
 import datetime
+import tensorflow as tf
 
-method = 'PCA'
+method = 'No Filter'
 task = 'no task'
-epochs = 2
-LR = 0.0001
-layers_nr = [64, 32, 32, 16]
+epochs = 100
+last_epochs = 0
+LR = 0.00001
+layers_nr = [128, 64, 64, 32]
 mask = (2,2)
 act = 'relu'
 llact = 'softmax'
@@ -17,6 +19,9 @@ droput = [.1, .1]
 R2 = 0
 kernel_initializer='random_normal'
 bias_initializer = 'random_normal'
+
+model_path = r"D:\TheodorRusnac\luiza_scripts\EEGImaginarySpeech\model_20-Aug-2021_12-10-31"
+
 
 if method == 'PCA':
 	xtrain = np.load(r"D:\TheodorRusnac\luiza_scripts\xftrain_pca.npy")
@@ -37,6 +42,12 @@ if task!= 'no task':
 xtrain, minim, maxim = preprocessing.featureNorm(xtrain, flag=1)
 xtest = preprocessing.featureNorm(xtest, minim, maxim)
 
+print("***Xtrain:***")
+print(xtrain)
+
+print("***Xtest:***")
+print(xtest)
+
 xtrain,ytrain = dl.randperm(xtrain,ytrain)
 xtest,ytest = dl.randperm(xtest,ytest)
 
@@ -52,7 +63,10 @@ xtest = xtest.reshape((-1,dim[1],dim[2],1))
 
 xshape = xtrain.shape
 
-model = dl.CNN(xshape, nr_cls, LR)
+if model_path is None:
+	model = dl.CNN(xshape, nr_cls, LR)
+else:
+	model = tf.keras.models.load_model(model_path)
 
 history = model.fit(xtrain, ytr, epochs=epochs, validation_data=(xtest, ytst))
 
@@ -84,9 +98,9 @@ Kernel initializer: %s, Bias initilizer: %s \n\
 Optimizer: Adam, Loss: MeanSquaredError \n\
 Train acc after %d iters: %.4f \n\
 Val acc after %d iters: %.4f"%(method,task,LR,layers_nr, mask, act, llact, droput, R2, kernel_initializer, \
-	bias_initializer,epochs,history.history['accuracy'][-1], epochs,test_acc)
+	bias_initializer,epochs+last_epochs,history.history['accuracy'][-1], epochs+last_epochs,test_acc)
 
-log.wlog("log_server.txt",text = text, flag = 1)
+log.wlog("log_server_cnn.txt",text = text, flag = 1)
 
 current_time = datetime.datetime.now() 
 current_time = current_time.strftime("%d-%b-%Y_%H-%M-%S")
