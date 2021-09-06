@@ -2,6 +2,7 @@ import numpy as np
 import pca
 import lms
 import preprocessing
+import EEGPlot
 
 xtrain = np.load(r"D:\TheodorRusnac\luiza_scripts\Xtrain.npy")
 xtest = np.load(r"D:\TheodorRusnac\luiza_scripts\Xtest.npy")
@@ -21,6 +22,9 @@ np.save("Xtrain_pca.npy",xtrain_pca)
 np.save("Xtest_pca.npy",xtest_pca)
 np.save("ytrain_pca.npy",ytrain0)
 np.save("ytest_pca.npy",ytest0)
+
+# EEGPlot.eegGR(xtrain0[0], ch = [10], name = 'sgn_raw.png', ch_labels = [0], path = None, flag = 0, space = 'maxim',flag2=0, fs = 1000)
+# EEGPlot.eegGR(xtrain_pca[0], ch = [10], name = 'sgn_pca.png', ch_labels = [0], path = None, flag = 0, space = 'maxim',flag2=0, fs = 1000)
 
 # heo = np.load(r"C:\D\Doctorat\EEGSpeech\KaraOne_EEGSpeech_HEO_noLPF.npy")
 # idxtrain = np.load("idxtrain.npy").astype(int)

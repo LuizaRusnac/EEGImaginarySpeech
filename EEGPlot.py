@@ -105,6 +105,7 @@ def eegGR(X, ch = None, name = 'eegGR.png', ch_labels = [0], path = None, flag =
 		final_path = path + '/' + name
 		plt.savefig(final_path)
 
+	plt.show()
 	plt.close()
 
 

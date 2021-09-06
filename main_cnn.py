@@ -8,19 +8,19 @@ import tensorflow as tf
 
 method = 'No Filter'
 task = 'no task'
-epochs = 100
+epochs = 50
 last_epochs = 0
 LR = 0.00001
-layers_nr = [128, 64, 64, 32]
+layers_nr = [128, 64, 64, 128]
 mask = (2,2)
 act = 'relu'
 llact = 'softmax'
-droput = [.1, .1]
+droput = [.2, .2]
 R2 = 0
 kernel_initializer='random_normal'
 bias_initializer = 'random_normal'
 
-model_path = r"D:\TheodorRusnac\luiza_scripts\EEGImaginarySpeech\model_20-Aug-2021_12-10-31"
+model_path = None
 
 
 if method == 'PCA':
@@ -30,10 +30,10 @@ if method == 'PCA':
 	ytest = np.load(r"D:\TheodorRusnac\luiza_scripts\ytest_pca.npy")
 
 if method == 'No Filter':
-	xtrain = np.load(r"D:\TheodorRusnac\luiza_scripts\xftrain.npy")
-	xtest = np.load(r"D:\TheodorRusnac\luiza_scripts\xftest.npy")
-	ytrain = np.load(r"D:\TheodorRusnac\luiza_scripts\yftrain.npy")
-	ytest = np.load(r"D:\TheodorRusnac\luiza_scripts\yftest.npy")
+	xtrain = np.load(r"D:\TheodorRusnac\luiza_scripts\Xtrain.npy")
+	xtest = np.load(r"D:\TheodorRusnac\luiza_scripts\Xtest.npy")
+	ytrain = np.load(r"D:\TheodorRusnac\luiza_scripts\ytrain.npy")
+	ytest = np.load(r"D:\TheodorRusnac\luiza_scripts\ytest.npy")
 
 if task!= 'no task':
 	ytrain = KOtasks.task(ytrain, task)

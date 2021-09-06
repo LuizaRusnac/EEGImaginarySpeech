@@ -150,7 +150,7 @@ def featureStd(X, mean = None, std = None, flag = 0):
 		std - if exists, the values from X will be standardized using this values of std. Dimension: [1 x nr. features] or
 		[nr. channels x nr. features]
 		flag - flag takes values 0 and 1, 0 if the user don't want to return the values of mean and std and 1 if the user
-		wish to reurn the mean and std values
+		wish to return the mean and std values
 
 	IMPORTANT: The function MUST receive mean AND std. If one is given, the other must be given too!!!
 

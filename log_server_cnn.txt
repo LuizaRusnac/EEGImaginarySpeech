@@ -146,3 +146,39 @@ Optimizer: Adam, Loss: MeanSquaredError
 Train acc after 100 iters: 0.2794 
 Val acc after 100 iters: 0.1173
 
+
+30-Aug-2021 (13:27:52)
+No Filter 1s standardized signal before feature extraction 
+Feature extraction: Spectrum all frequencies 
+With CNN, Task: no task 
+LR = 0.00001, layers nr = [128, 64, 64, 128], mask = (2, 2), Act functions in layers: relu 
+Act function in last layer: softmax, Droput: [0.1, 0.1], Regularization: 0.0000 
+Kernel initializer: random_normal, Bias initilizer: random_normal 
+Optimizer: Adam, Loss: MeanSquaredError 
+Train acc after 100 iters: 0.1796 
+Val acc after 100 iters: 0.1173
+
+
+31-Aug-2021 (14:07:55)
+No Filter 1s standardized signal before feature extraction 
+Feature extraction: Spectrum all frequencies 
+With CNN, Task: no task 
+LR = 0.00001, layers nr = [128, 128, 128, 128], mask = (2, 2), Act functions in layers: relu 
+Act function in last layer: softmax, Droput: [0.2, 0.2], Regularization: 0.0000 
+Kernel initializer: random_normal, Bias initilizer: random_normal 
+Optimizer: Adam, Loss: MeanSquaredError 
+Train acc after 100 iters: 0.1852 
+Val acc after 100 iters: 0.1134
+
+
+02-Sep-2021 (19:42:59)
+No Filter 1s standardized signal before feature extraction 
+Feature extraction: Spectrum all frequencies 
+With CNN, Task: no task 
+LR = 0.00001, layers nr = [128, 64, 64, 128], mask = (2, 2), Act functions in layers: relu 
+Act function in last layer: softmax, Droput: [0.2, 0.2], Regularization: 0.0000 
+Kernel initializer: random_normal, Bias initilizer: random_normal 
+Optimizer: Adam, Loss: MeanSquaredError 
+Train acc after 50 iters: 0.0864 
+Val acc after 50 iters: 0.0876
+

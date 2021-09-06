@@ -90,6 +90,9 @@ def allDataPca(x, keep = [0, 0], flag = 0):
 	for rec,i in zip(x, range(len(x))):
 		print("PCA: Wait... It might takes several minutes! You are at %d/%d"%(i+1,len(x)))
 		comp = pcaComp(rec)
-		xhat[i,:,:] = pcaTransform(rec, comp, keep = keep, flag = flag)
+		if(np.corrcoef(comp[:2,:])[0,1]>0.97):
+			xhat[i,:,:] = pcaTransform(rec, comp, keep = keep, flag = flag)
+		else:
+			xhat[i,:,:] = pcaTransform(rec, comp, keep = [0, len(x[0])], flag = flag)
 
 	return xhat
