@@ -30,7 +30,7 @@ def define_discriminator(in_shape=(62,500,1)):
 	model.add(Dropout(0.4))
 	model.add(Dense(6272, activation = 'relu'))
 	model.summary()
-	model.add(Dense(1, activation='sigmoid'))
+	model.add(Dense(11, activation='sigmoid'))
 	# compile model
 	opt = optimizers.Adam(lr=0.0002, beta_1=0.5)
 	model.compile(loss='binary_crossentropy', optimizer=opt, metrics=['accuracy'])
@@ -73,14 +73,8 @@ def define_gan(generator, discriminator):
 def load_real_samples():
 	# load dataset
 	trainX = np.load(r"C:\D\Doctorat\EEGImaginarySpeech\Xtrain_pca.npy")
-	print("**************")
-	print(trainX.shape)
-	print("**************")
 	trainy = np.load(r"C:\D\Doctorat\EEGImaginarySpeech\ytrain_pca.npy")
 	trainX = trainX[np.ravel(trainy==0)]
-	print("**************")
-	print(trainX.shape)
-	print("**************")
 	# expand to 3d, e.g. add channels
 	X = trainX.reshape((-1,trainX.shape[1],trainX.shape[2],1))
 	# convert from ints to floats
@@ -135,6 +129,12 @@ def train(g_model, d_model, gan_model, dataset, latent_dim, n_epochs=100, n_batc
 			d_loss2, _ = d_model.train_on_batch(X_fake, y_fake)
 			# prepare points in latent space as input for the generator
 			X_gan = generate_latent_points(latent_dim, n_batch)
+			# print("************** Print X latent space ************")
+			# print(X_gan)
+			# print("**************")
+			# print("************** Print X latent space dim************")
+			# print(X_gan.shape)
+			# print("**************")
 			# create inverted labels for the fake samples
 			y_gan = ones((n_batch, 1))
 			# update the generator via the discriminator's error
@@ -144,6 +144,18 @@ def train(g_model, d_model, gan_model, dataset, latent_dim, n_epochs=100, n_batc
 				(i+1, j+1, bat_per_epo, d_loss1, d_loss2, g_loss))
 	# save the generator model
 	g_model.save('generator.h5')
+
+def save_plot(examples, n):
+	# plot images
+	for i in range(n * n):
+		# define subplot
+		pyplot.subplot(n, n, 1 + i)
+		# turn off axis
+		pyplot.axis('off')
+		# plot raw pixel data
+		pyplot.imshow(examples[i, :, :, 0])
+	pyplot.show()
+ 
  
 # size of the latent space
 latent_dim = 100
