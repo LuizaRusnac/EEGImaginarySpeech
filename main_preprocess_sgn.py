@@ -12,8 +12,8 @@ ytest = np.load(r"D:\TheodorRusnac\luiza_scripts\ytest.npy")
 xtrain0, ytrain0 = preprocessing.spWin(xtrain, 1000, y=ytrain)
 xtest0, ytest0 = preprocessing.spWin(xtest, 1000, y=ytest)
 
-xtrain_pca = pca.allDataPca(xtrain0,keep=[2,len(xtrain[0])],flag=2)
-xtest_pca = pca.allDataPca(xtest0,keep=[2,len(xtrain[0])],flag=2)
+xtrain_pca = pca.allDataPca(xtrain0,keep=[2,len(xtrain[0])],flag=0)
+xtest_pca = pca.allDataPca(xtest0,keep=[2,len(xtrain[0])],flag=0)
 
 print(xtrain_pca)
 print(xtest_pca)

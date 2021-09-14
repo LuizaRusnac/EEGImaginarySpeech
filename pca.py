@@ -66,7 +66,9 @@ def pcaTransform(X, pcaComp, keep = [0, 2], flag = 0):
 	elif flag!=0:
 		raise ValueError("%d is not a valid flag number"%flag)
 
-	pcaTransf = np.dot(X, pcaComp[keep[0]:keep[1],:].T)
+	# pcaTransf = np.dot(X, pcaComp[keep[0]:keep[1],:].T)
+	pcaComp[:keep[0],:] = 0
+	pcaComp[keep[1],:] = 0
 	Xhat = np.dot(pcaTransf, pcaComp[keep[0]:keep[1],:])
 
 	return Xhat

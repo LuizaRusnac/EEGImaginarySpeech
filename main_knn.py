@@ -7,7 +7,7 @@ from preprocessing import sgnStd, sgnNorm, featureStd
 import matplotlib.pyplot as plt
 import numpy.matlib
 
-method = 'No Filter'
+method = 'PCA'
 task = 'no task'
 
 if method == 'PCA':
@@ -41,13 +41,15 @@ print(xtrain.shape)
 # # print(xtrain.shape)
 # xtrain = np.resize(xtrain,(xtrain.shape[0],60,500))
 # xtest = np.resize(xtest,(xtest.shape[0],60,500))
-xctrain = np.zeros((xtrain.shape[0],xtrain.shape[1],xtrain.shape[1]))
-for i in range(len(xtrain)):
-	xctrain[i,:,:] = np.cov(xtrain[i,:,:])
 
-xctest = np.zeros((xtest.shape[0],xtest.shape[1],xtest.shape[1]))
-for i in range(len(xtest)):
-	xctest[i,:,:] = np.cov(xtest[i,:,:])
+# xctrain = np.zeros((xtrain.shape[0],xtrain.shape[1],xtrain.shape[1]))
+# for i in range(len(xtrain)):
+# 	xctrain[i,:,:] = np.cov(xtrain[i,:,:])
+
+# xctest = np.zeros((xtest.shape[0],xtest.shape[1],xtest.shape[1]))
+# for i in range(len(xtest)):
+# 	xctest[i,:,:] = np.cov(xtest[i,:,:])
+
 # dim = xtrain.shape
 
 # for i in range(len(xtrain)):
@@ -70,12 +72,14 @@ for i in range(len(xtest)):
 # xtest = np.resize(xctest,(xtest.shape[0],60,60))
 # xtrain, minim, maxim = preprocessing.featureStd(xtrain, flag = 1)
 # xtest = preprocessing.featureStd(xtest, minim, maxim)
-xtrain = np.concatenate((xctrain,gen),axis=0)
-# print(xtrain.shape)
+
+# xtrain = np.concatenate((xctrain,gen),axis=0)
+# # print(xtrain.shape)
 xtrain = preprocessing.mat3d2mat2d(xtrain)
-xtest = preprocessing.mat3d2mat2d(xctest)
-ytrain = np.reshape(ytrain,(len(ytrain),1))
-ytrain = np.concatenate((ytrain,ygen))
+xtest = preprocessing.mat3d2mat2d(xtest)
+# ytrain = np.reshape(ytrain,(len(ytrain),1))
+# ytrain = np.concatenate((ytrain,ygen))
+
 ytrain = np.ravel(ytrain)
 ytest = np.ravel(ytest)
 
@@ -88,8 +92,8 @@ score = machineLearning.knn(xtrain,ytrain,xtest,ytest, kval = [1, 50, 2], flag =
 
 m = score.max()
 ix = (score.argmax()*2)+1
-text = "%s 4s Signal with cGAN generations \n \
-Feature extraction: CO => 62x62\n \
+text = "%s 1s Signal PCA withouth normalization/standardization signals \n \
+Feature extraction: Spectrum, all freq \n \
 With KNN, Task: %s \n \
 kval from 1 to 50 \n \
 max val acc: %.4f, k max val: %d"%(method,task,m,ix)

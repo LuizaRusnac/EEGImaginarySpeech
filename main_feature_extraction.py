@@ -3,10 +3,10 @@ import featureExtr
 import preprocessing
 from scipy.ndimage import gaussian_filter
 
-xtrain = np.load(r"Xtrain.npy")
-xtest = np.load(r"Xtest.npy")
-ytrain = np.load(r"ytrain.npy")
-ytest = np.load(r"ytest.npy")
+xtrain = np.load(r"Xtrain_pca.npy")
+xtest = np.load(r"Xtest_pca.npy")
+ytrain = np.load(r"ytrain_pca.npy")
+ytest = np.load(r"ytest_pca.npy")
 
 # xtrain = np.load(r"xfdbtrain.npy")
 # xtest = np.load(r"xfdbtest.npy")
@@ -17,11 +17,11 @@ xtrain, yftrain = preprocessing.spWin(xtrain, window=1000, y=ytrain)
 xtest, yftest = preprocessing.spWin(xtest, window=1000, y=ytest)
 
 
-for i in range(len(xtrain)):
-	xtrain[i,:,:] = preprocessing.sgnStd(xtrain[i,:,:])
+# for i in range(len(xtrain)):
+# 	xtrain[i,:,:] = preprocessing.sgnStd(xtrain[i,:,:])
 
-for i in range(len(xtest)):
-	xtest[i,:,:] = preprocessing.sgnStd(xtest[i,:,:])
+# for i in range(len(xtest)):
+# 	xtest[i,:,:] = preprocessing.sgnStd(xtest[i,:,:])
 
 
 xftrain = featureExtr.spectrumChn(xtrain, fs = 1000, freq = [0, 500], nfft = None)
@@ -41,7 +41,7 @@ print(xftest)
 # 	xctest[i,:,:] = np.corrcoef(xf)
 
 
-np.save(r"xftrain.npy",xftrain)
-np.save(r"xftest.npy",xftest)
-np.save(r"yftrain.npy",yftrain)
-np.save(r"yftest.npy",yftest)
+np.save(r"xftrain_pca.npy",xftrain)
+np.save(r"xftest_pca.npy",xftest)
+np.save(r"yftrain_pca.npy",yftrain)
+np.save(r"yftest_pca.npy",yftest)
