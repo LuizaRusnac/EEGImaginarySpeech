@@ -1,0 +1,596 @@
+01-Sep-2021 (11:53:06)
+PCA 1s standardized signal before feature extraction 
+ Feature extraction: Spectrum all freq 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1881, k max val: 33
+
+
+01-Sep-2021 (11:55:22)
+PCA 1s NO standardized signal before feature extraction 
+ Feature extraction: Spectrum all freq
+ cGAN augmented 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2255, k max val: 5
+
+
+01-Sep-2021 (12:05:39)
+PCA 1s normalized signal before feature extraction 
+ Feature extraction: Spectrum all freq 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1791, k max val: 29
+
+
+01-Sep-2021 (12:10:38)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction: Spectrum all freq 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2178, k max val: 1
+
+
+01-Sep-2021 (12:25:33)
+PCA 1s NO standardized signal before feature extraction 
+ Feature extraction: Spectrum freq [5, 1000] 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2165, k max val: 15
+
+
+01-Sep-2021 (12:27:11)
+PCA 1s NO standardized signal before feature extraction 
+ Feature extraction: Spectrum freq [5, 500] 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2113, k max val: 1
+
+
+01-Sep-2021 (12:28:26)
+PCA 1s NO standardized signal before feature extraction 
+ Feature extraction: Spectrum freq [5, 500] 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2113, k max val: 3
+
+
+01-Sep-2021 (12:30:45)
+PCA 1s NO standardized signal before feature extraction 
+ Feature extraction: Spectrum freq [0, 500] 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2255, k max val: 5
+
+
+01-Sep-2021 (12:32:15)
+PCA 1s NO standardized signal before feature extraction 
+ Feature extraction: Spectrum freq [2, 500] 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2178, k max val: 5
+
+
+01-Sep-2021 (12:44:35)
+PCA 1s NO standardized signal before feature extraction 
+ Feature extraction: Spectrum freq [0, 500], withouth square fft  
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2255, k max val: 5
+
+
+01-Sep-2021 (12:46:12)
+PCA 1s NO standardized signal before feature extraction 
+ Feature extraction: Spectrum freq [0, 500], withouth 20 from 20*log of square fft 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2255, k max val: 5
+
+
+01-Sep-2021 (12:47:05)
+PCA 1s NO standardized signal before feature extraction 
+ Feature extraction: Spectrum freq [0, 500], withouth log on square fft  
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2113, k max val: 19
+
+
+01-Sep-2021 (12:52:15)
+PCA 1s NO standardized signal before feature extraction 
+ Feature extraction: Spectrum freq [0, 500] 
+ Reshape to 60x60 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.0554, k max val: 1
+
+
+01-Sep-2021 (12:55:28)
+PCA 1s NO standardized signal before feature extraction 
+ Feature extraction: Spectrum freq [0, 500] 
+ Feature Cov: 62x62
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2126, k max val: 19
+
+
+01-Sep-2021 (12:56:39)
+PCA 1s NO standardized signal before feature extraction 
+ Feature extraction: Spectrum freq [0, 500] 
+ Feature Cov: 60x60 withouth first 2 channels
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2049, k max val: 17
+
+
+01-Sep-2021 (12:58:28)
+PCA 1s NO standardized signal before feature extraction 
+ Feature extraction: Spectrum freq [0, 500] 
+ Cov: 60x60 withouth last 2 channels 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2088, k max val: 15
+
+
+01-Sep-2021 (13:01:45)
+PCA 1s NO standardized signal before feature extraction 
+ Feature extraction: Spectrum freq [0, 500] 
+ Cov: 62x62 with reshape 60x60 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1276, k max val: 11
+
+
+01-Sep-2021 (13:11:39)
+PCA 1s NO standardized signal before feature extraction 
+ Feature extraction: Spectrum freq [0, 500] 
+ Resize to 60x500 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1418, k max val: 1
+
+
+01-Sep-2021 (13:14:23)
+PCA 1s NO standardized signal before feature extraction 
+ Feature extraction: Spectrum freq [0, 500] 
+ Eliminate first 2 channels => 60x500 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2036, k max val: 19
+
+
+01-Sep-2021 (13:59:43)
+PCA 4s NO standardized signal before feature extraction 
+ Feature extraction: Spectrum freq [0, 500] 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2268, k max val: 1
+
+
+01-Sep-2021 (14:16:21)
+PCA 0.5s NO standardized signal before feature extraction 
+ Feature extraction: Spectrum freq [0, 500] 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2139, k max val: 13
+
+
+
+01-Sep-2021 (14:35:03)
+PCA 4s NO standardized signal before feature extraction 
+ Feature extraction: Spectrum freq [0, 500] 
+ With KNN, Task: bilabial 
+ kval from 1 to 50 
+ max val acc: 0.6353, k max val: 33
+
+
+01-Sep-2021 (14:36:22)
+No Filter 4s NO standardized signal before feature extraction 
+ Feature extraction: Spectrum freq [0, 500] 
+ With KNN, Task: bilabial 
+ kval from 1 to 50 
+ max val acc: 0.6430, k max val: 33
+
+
+02-Sep-2021 (09:58:39)
+No Filter 4s NO standardized signal before feature extraction 
+ Feature extraction: Spectrum freq [0, 500] 
+ With KNN, Task: bilabial 
+ Cov => 62x62 
+kval from 1 to 50 
+ max val acc: 0.6546, k max val: 13
+
+
+02-Sep-2021 (09:59:07)
+No Filter 4s NO standardized signal before feature extraction 
+ Feature extraction: Time series
+ With KNN, Task: no task 
+ Cov => 62x62 
+ kval from 1 to 50 
+ max val acc: 0.1856, k max val: 7
+
+
+02-Sep-2021 (09:59:49)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction: Time series
+ With KNN, Task: no task 
+ Cov => 62x62 
+ kval from 1 to 50 
+ max val acc: 0.1263, k max val: 9
+
+
+02-Sep-2021 (12:36:05)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction: Db2-5 convolution Time series 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1701, k max val: 5
+
+
+02-Sep-2021 (12:38:00)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction: Db4-5 convolution Time series 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1585, k max val: 3
+
+
+02-Sep-2021 (12:40:59)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction: Db2-4 convolution Time series 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1508, k max val: 5
+
+
+02-Sep-2021 (12:43:06)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction: Db2-6 convolution Time series 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1753, k max val: 9
+
+
+02-Sep-2021 (12:45:10)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction: Db2-7 convolution Time series 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1624, k max val: 1
+
+
+02-Sep-2021 (12:54:51)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction: Db4-8 convolution Time series 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1546, k max val: 13
+
+
+02-Sep-2021 (12:57:09)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction: Ricker100-4 convolution Time series 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1495, k max val: 7
+
+
+02-Sep-2021 (12:59:14)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction: Ricker90-4 convolution Time series 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1495, k max val: 7
+
+
+02-Sep-2021 (13:03:03)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction: Ricker200-4 convolution Time series 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1495, k max val: 7
+
+
+02-Sep-2021 (13:05:23)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction: Ricker200-6 convolution Time series 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1637, k max val: 7
+
+
+02-Sep-2021 (13:08:38)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction: Ricker200-8 convolution Time series 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1701, k max val: 7
+
+
+02-Sep-2021 (13:10:58)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction: Ricker200-10 convolution Time series 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1688, k max val: 3
+
+
+02-Sep-2021 (13:14:07)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction: Ricker500-8 convolution Time series 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1701, k max val: 7
+
+
+02-Sep-2021 (13:21:45)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction: Gaussian Real convolution Time series 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1585, k max val: 3
+
+
+02-Sep-2021 (13:23:35)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction: Gaussian Anvelope convolution Time series 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1997, k max val: 5
+
+
+02-Sep-2021 (13:27:53)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction: Gaussian Anvelope fc100 convolution Time series 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2075, k max val: 3
+
+
+02-Sep-2021 (13:29:56)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction: Gaussian Anvelope 100 pct fc200 convolution Time series 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2088, k max val: 3
+
+
+02-Sep-2021 (13:33:50)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction: Gaussian Anvelope 500 pct fc200 convolution Time series 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2049, k max val: 3
+
+
+02-Sep-2021 (13:36:31)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction: Gaussian Anvelope 500 pct fc200 convolution Time series Spectrum freq [0, 500] 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1753, k max val: 1
+
+
+02-Sep-2021 (13:43:24)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction: Spectrum freq [0, 500] with Gaussian Filter sigma = 1
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2294, k max val: 5
+
+
+02-Sep-2021 (13:45:01)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction: Spectrum freq [0, 500] with Gaussian Filter simga = 2 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2229, k max val: 3
+
+
+02-Sep-2021 (13:47:00)
+PCA 1s NO standardized signal before feature extraction 
+ Feature extraction: Spectrum freq [0, 500] with Gaussian Filter simga = 1 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2178, k max val: 5
+
+
+02-Sep-2021 (13:51:28)
+PCA 1s NO standardized signal before feature extraction 
+ Feature extraction: 2d Gaussian filter sigma=1 time series + Spectrum freq [0, 500]
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1405, k max val: 7
+
+
+02-Sep-2021 (13:56:15)
+PCA 1s NO standardized signal before feature extraction 
+ Feature extraction:Spectrum freq [0, 500] + Gaussian Filter sigma=1 + COV => 62x62
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1662, k max val: 43
+
+
+02-Sep-2021 (13:57:42)
+PCA 1s NO standardized signal before feature extraction 
+ Feature extraction:Spectrum freq [0, 500] + Gaussian Filter sigma=1 + CORRCoef => 62x62
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2204, k max val: 3
+
+
+02-Sep-2021 (14:38:36)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction:Spectrum freq [0, 500] + Gaussian Filter sigma=1 + CORRCoef => 62x62
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1714, k max val: 3
+
+
+02-Sep-2021 (14:40:58)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction:Spectrum freq [0, 500] + Gaussian Filter sigma=2 + CORRCoef => 62x62
+ With KNN, Task: bilabial 
+ kval from 1 to 50 
+ max val acc: 0.6392, k max val: 37
+
+
+02-Sep-2021 (14:41:43)
+PCA 1s NO standardized signal before feature extraction 
+ Feature extraction:Spectrum freq [0, 500] + Gaussian Filter sigma=2 + CORRCoef => 62x62
+ With KNN, Task: bilabial 
+ kval from 1 to 50 
+ max val acc: 0.6521, k max val: 7
+
+
+02-Sep-2021 (14:42:31)
+PCA 1s NO standardized signal before feature extraction 
+ Feature extraction:Spectrum freq [0, 500] + Gaussian Filter sigma=2 + CORRCoef => 62x62
+ With KNN, Task: nasal 
+ kval from 1 to 50 
+ max val acc: 0.6521, k max val: 49
+
+
+02-Sep-2021 (14:43:43)
+No Filter 1s NO standardized signal before feature extraction 
+ Feature extraction:Spectrum freq [0, 500] + Gaussian Filter sigma=2 + CORRCoef => 62x62
+ With KNN, Task: nasal 
+ kval from 1 to 50 
+ max val acc: 0.6392, k max val: 23
+
+
+02-Sep-2021 (15:21:28)
+No Filter 1s Standardized signal before feature extraction 
+ Feature extraction: Standardized Gaussian width=500, sigma=100 Convolution with Time series on 4s
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.0979, k max val: 5
+
+
+02-Sep-2021 (15:24:46)
+No Filter 1s Standardized signal before feature extraction 
+ Feature extraction: Standardized Gaussian width=500, sigma=50 Convolution with Time series on 4s
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.0979, k max val: 49
+
+
+02-Sep-2021 (15:28:43)
+No Filter 1s Standardized signal before feature extraction 
+ Feature extraction: Standardized Gaussian width=250, sigma=50 Convolution with Time series on 4s
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.0941, k max val: 21
+
+
+02-Sep-2021 (15:32:14)
+No Filter 1s Standardized signal before feature extraction 
+ Feature extraction: Standardized Gaussian width=500, sigma=3 Convolution with Time series on 4s
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.0966, k max val: 29
+
+
+02-Sep-2021 (15:36:32)
+No Filter 1s Standardized signal before feature extraction 
+ Feature extraction: Standardized DB4-8 Convolution with Time series on 4s
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.0941, k max val: 1
+
+
+02-Sep-2021 (15:39:15)
+No Filter 1s Standardized signal before feature extraction 
+ Feature extraction: Time series
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1070, k max val: 31
+
+
+02-Sep-2021 (15:41:08)
+No Filter 1s No Standardized signal before feature extraction 
+ Feature extraction: Time series
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2062, k max val: 7
+
+
+02-Sep-2021 (15:43:50)
+No Filter 1s Standardized after window split signal before feature extraction 
+ Feature extraction: Time series
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1134, k max val: 11
+
+
+02-Sep-2021 (15:51:59)
+No Filter 1s Standardized after window split signal before feature extraction 
+ Feature extraction: Time series
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1263, k max val: 9
+
+
+02-Sep-2021 (15:57:11)
+No Filter 1s Feature standardization after window split signal before feature extraction 
+ Feature extraction: Time series
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2332, k max val: 11
+
+
+02-Sep-2021 (15:59:15)
+No Filter 1s Feature standardization after window split signal before feature extraction 
+ Feature extraction: Time series
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2023, k max val: 13
+
+
+02-Sep-2021 (16:06:28)
+No Filter 1s Zero-mean signals after window split signal before feature extraction 
+ Feature extraction: Time series
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1044, k max val: 15
+
+
+03-Sep-2021 (09:08:24)
+No Filter 4s Signal with cGAN generations 
+ Feature extraction: CO => 62x62
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1856, k max val: 7
+
+
+03-Sep-2021 (09:09:20)
+No Filter 4s Signal with cGAN generations 
+ Feature extraction: CO => 62x62
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1856, k max val: 7
+
+
+03-Sep-2021 (09:11:49)
+No Filter 4s Signal with cGAN generations 
+ Feature extraction: CO => 62x62
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1856, k max val: 7
+
+
+03-Sep-2021 (09:13:18)
+No Filter 4s Signal with cGAN generations 
+ Feature extraction: CO => 62x62
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1856, k max val: 7
+
+
+
+06-Sep-2021 (13:24:31)
+PCA 1s Signal PCA withouth normalization/standardization signals 
+ Feature extraction: Spectrum, all freq 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2268, k max val: 1
+

@@ -1,5 +1,6 @@
 # The file included: xtrain_pca, ytrain_pca, xtest_pca, ytest_pca
 #
-# Eliminate: components 1 and 2 for all signals
+# Eliminate: components 1 and 2 for the signals where correlation between
+# the first and second principal component is higher that 0.97
 #
 # PCA over 1s window

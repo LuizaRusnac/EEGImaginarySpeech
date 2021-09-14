@@ -15,9 +15,10 @@ from tensorflow.keras.layers import LeakyReLU
 from tensorflow.keras.layers import Dropout
 import numpy as np
 import preprocessing
+import matplotlib.pyplot as plt
  
 # define the standalone discriminator model
-def define_discriminator(in_shape=(62,500,1)):
+def define_discriminator(in_shape=(28,28,1)):
 	model = Sequential()
 	# downsample
 	model.add(Conv2D(128, (3,3), strides=(2,2), padding='same', input_shape=in_shape))
@@ -28,7 +29,7 @@ def define_discriminator(in_shape=(62,500,1)):
 	# classifier
 	model.add(Flatten())
 	model.add(Dropout(0.4))
-	model.add(Dense(6272, activation = 'relu'))
+	# model.add(Dense(6272, activation = 'relu'))
 	model.summary()
 	model.add(Dense(11, activation='sigmoid'))
 	# compile model
@@ -66,21 +67,29 @@ def define_gan(generator, discriminator):
 	model.add(discriminator)
 	# compile model
 	opt = optimizers.Adam(lr=0.0002, beta_1=0.5)
-	model.compile(loss='binary_crossentropy', optimizer=opt)
+	model.compile(loss='binary_crossentropy', optimizer=opt, metrics = ['accuracy'])
 	return model
  
 # load fashion mnist images
 def load_real_samples():
 	# load dataset
+<<<<<<< HEAD
 	trainX = np.load(r"C:\D\Doctorat\EEGImaginarySpeech\Xtrain_pca.npy")
 	trainy = np.load(r"C:\D\Doctorat\EEGImaginarySpeech\ytrain_pca.npy")
 	trainX = trainX[np.ravel(trainy==0)]
+=======
+	trainX = np.load(r"D:\TheodorRusnac\luiza_scripts\xftrain_pca.npy")
+	trainy = np.load(r"D:\TheodorRusnac\luiza_scripts\ytrain_pca.npy")
+	X = trainX[np.ravel(trainy==0)]
+>>>>>>> 93a970b3361893b2011f4202d740841cb24b5916
 	# expand to 3d, e.g. add channels
-	X = trainX.reshape((-1,trainX.shape[1],trainX.shape[2],1))
+	X = np.resize(X,(X.shape[0],28,28))
 	# convert from ints to floats
-	X = X.astype('float32')
+	# X = X.astype('float32')
 	# scale from [0,255] to [-1,1]
 	X = preprocessing.featureNorm(X)
+	X = X.reshape((-1,X.shape[1],X.shape[2],1))
+
 	return X
  
 # select real samples
@@ -122,11 +131,11 @@ def train(g_model, d_model, gan_model, dataset, latent_dim, n_epochs=100, n_batc
 			# get randomly selected 'real' samples
 			X_real, y_real = generate_real_samples(dataset, half_batch)
 			# update discriminator model weights
-			d_loss1, _ = d_model.train_on_batch(X_real, y_real)
+			d_loss1, acc1 = d_model.train_on_batch(X_real, y_real)
 			# generate 'fake' examples
 			X_fake, y_fake = generate_fake_samples(g_model, latent_dim, half_batch)
 			# update discriminator model weights
-			d_loss2, _ = d_model.train_on_batch(X_fake, y_fake)
+			d_loss2, acc2 = d_model.train_on_batch(X_fake, y_fake)
 			# prepare points in latent space as input for the generator
 			X_gan = generate_latent_points(latent_dim, n_batch)
 			# print("************** Print X latent space ************")
@@ -138,11 +147,12 @@ def train(g_model, d_model, gan_model, dataset, latent_dim, n_epochs=100, n_batc
 			# create inverted labels for the fake samples
 			y_gan = ones((n_batch, 1))
 			# update the generator via the discriminator's error
-			g_loss = gan_model.train_on_batch(X_gan, y_gan)
+			g_loss, accg = gan_model.train_on_batch(X_gan, y_gan)
 			# summarize loss on this batch
-			print('>%d, %d/%d, d1=%.3f, d2=%.3f g=%.3f' %
-				(i+1, j+1, bat_per_epo, d_loss1, d_loss2, g_loss))
+			print('>%d, %d/%d, d1=%.3f, d2=%.3f g=%.3f ---- acc1=%.4f, acc2=%.4f, accg=%.4f' %
+				(i+1, j+1, bat_per_epo, d_loss1, d_loss2, g_loss,acc1,acc2,accg))
 	# save the generator model
+<<<<<<< HEAD
 	g_model.save('generator.h5')
 
 def save_plot(examples, n):
@@ -156,6 +166,22 @@ def save_plot(examples, n):
 		pyplot.imshow(examples[i, :, :, 0])
 	pyplot.show()
  
+=======
+	gan_model.save('generator.h5')
+
+def save_plot(examples, n, name):
+	# plot images
+	for i in range(n * n):
+		# define subplot
+		plt.subplot(n, n, 1 + i)
+		# turn off axis
+		plt.axis('off')
+		# plot raw pixel data
+		plt.imshow(examples[i, :, :, 0])
+	plt.show()
+	plt.save(name)
+
+>>>>>>> 93a970b3361893b2011f4202d740841cb24b5916
  
 # size of the latent space
 latent_dim = 100
@@ -169,3 +195,15 @@ gan_model = define_gan(generator, discriminator)
 dataset = load_real_samples()
 # train model
 train(generator, discriminator, gan_model, dataset, latent_dim)
+
+# load model
+# model = load_model('cgan_generator.h5')
+# generate images
+latent_points = generate_latent_points(100, 100)
+# specify labels
+labels = np.asarray([x for _ in range(2) for x in range(2)])
+# generate images
+X  = gan_model.predict([latent_points, labels])
+
+save_plot(X, 10, 'fake_image.png')
+save_plot(dataset,10, 'real_image.png')

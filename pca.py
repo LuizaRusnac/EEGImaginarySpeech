@@ -66,7 +66,9 @@ def pcaTransform(X, pcaComp, keep = [0, 2], flag = 0):
 	elif flag!=0:
 		raise ValueError("%d is not a valid flag number"%flag)
 
-	pcaTransf = np.dot(X, pcaComp[keep[0]:keep[1],:].T)
+	# pcaTransf = np.dot(X, pcaComp[keep[0]:keep[1],:].T)
+	pcaComp[:keep[0],:] = 0
+	pcaComp[keep[1],:] = 0
 	Xhat = np.dot(pcaTransf, pcaComp[keep[0]:keep[1],:])
 
 	return Xhat
@@ -90,6 +92,9 @@ def allDataPca(x, keep = [0, 0], flag = 0):
 	for rec,i in zip(x, range(len(x))):
 		print("PCA: Wait... It might takes several minutes! You are at %d/%d"%(i+1,len(x)))
 		comp = pcaComp(rec)
-		xhat[i,:,:] = pcaTransform(rec, comp, keep = keep, flag = flag)
+		if(np.corrcoef(comp[:2,:])[0,1]>0.97):
+			xhat[i,:,:] = pcaTransform(rec, comp, keep = keep, flag = flag)
+		else:
+			xhat[i,:,:] = pcaTransform(rec, comp, keep = [0, len(x[0])], flag = flag)
 
 	return xhat
