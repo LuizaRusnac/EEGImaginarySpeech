@@ -585,3 +585,12 @@ No Filter 4s Signal with cGAN generations
  kval from 1 to 50 
  max val acc: 0.1856, k max val: 7
 
+
+
+06-Sep-2021 (13:24:31)
+PCA 1s Signal PCA withouth normalization/standardization signals 
+ Feature extraction: Spectrum, all freq 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2268, k max val: 1
+
