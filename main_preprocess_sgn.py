@@ -3,17 +3,31 @@ import pca
 import lms
 import preprocessing
 import EEGPlot
+from sklearn.decomposition import PCA
 
-xtrain = np.load(r"D:\TheodorRusnac\luiza_scripts\Xtrain.npy")
-xtest = np.load(r"D:\TheodorRusnac\luiza_scripts\Xtest.npy")
-ytrain = np.load(r"D:\TheodorRusnac\luiza_scripts\ytrain.npy")
-ytest = np.load(r"D:\TheodorRusnac\luiza_scripts\ytest.npy")
+
+xtrain = np.load(r"Xtrain.npy")
+xtest = np.load(r"Xtest.npy")
+ytrain = np.load(r"ytrain.npy")
+ytest = np.load(r"ytest.npy")
 
 xtrain0, ytrain0 = preprocessing.spWin(xtrain, 1000, y=ytrain)
 xtest0, ytest0 = preprocessing.spWin(xtest, 1000, y=ytest)
 
-xtrain_pca = pca.allDataPca(xtrain0,keep=[2,len(xtrain[0])],flag=0)
-xtest_pca = pca.allDataPca(xtest0,keep=[2,len(xtrain[0])],flag=0)
+# xtrain_pca = np.zeros((xtrain0.shape[0],60,xtrain0.shape[2]))
+# for rec,i in zip(xtrain0, range(len(xtrain0))):
+# 	print("PCA: Wait... It might takes several minutes! You are at %d/%d"%(i+1,len(xtrain0)))
+# 	comp = pca.pcaComp(rec)
+# 	xtrain_pca[i,:,:] = comp[2:,:];
+
+# xtest_pca = np.zeros((xtest0.shape[0],60,xtest0.shape[2]))
+
+# for rec,i in zip(xtest0, range(len(xtest0))):
+# 	print("PCA: Wait... It might takes several minutes! You are at %d/%d"%(i+1,len(xtest0)))
+# 	comp = pca.pcaComp(rec)
+# 	xtest_pca[i,:,:] = comp[2:,:];
+xtrain_pca = pca.allDataPca(xtrain0,keep=[2,len(xtrain0[0])],flag=0)
+xtest_pca = pca.allDataPca(xtest0,keep=[2,len(xtrain0[0])],flag=0)
 
 print(xtrain_pca)
 print(xtest_pca)

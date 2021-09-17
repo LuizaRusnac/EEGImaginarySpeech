@@ -7,7 +7,7 @@ from preprocessing import sgnStd, sgnNorm, featureStd
 import matplotlib.pyplot as plt
 import numpy.matlib
 
-method = 'PCA'
+method = 'No Filter'
 task = 'no task'
 
 if method == 'PCA':
@@ -17,14 +17,16 @@ if method == 'PCA':
 	ytest = np.load(r"yftest_pca.npy")
 
 if method == 'No Filter':
-	xtrain = np.load(r"Xtrain.npy")
-	xtest = np.load(r"Xtest.npy")
-	ytrain = np.load(r"ytrain.npy")
-	ytest = np.load(r"ytest.npy")
-	gen = np.load('generated_pca.npy')
-	ygen = np.load('generate_pca_labels.npy')
-	ygen = np.reshape(ygen,(len(ygen),1))
-	print(gen.shape)
+	xtrain = np.load(r"xftrain.npy")
+	xtest = np.load(r"xftest.npy")
+	ytrain = np.load(r"yftrain.npy")
+	ytest = np.load(r"yftest.npy")
+	# gen = np.load('generated_pca.npy')
+	# ygen = np.load('generate_pca_labels.npy')
+	# ygen = np.reshape(ygen,(len(ygen),1))
+	# print(gen.shape)
+	# xtrain, ytrain = preprocessing.spWin(xtrain, 1000, ytrain)
+	# xtest, ytest = preprocessing.spWin(xtest, 1000, ytest)
 	
 print(xtrain.shape)
 # print(xtrain.shape)
@@ -35,9 +37,6 @@ print(xtrain.shape)
 # xtest = xtest[:,2:,:]
 
 
-
-# xtrain, ytrain = preprocessing.spWin(xtrain, 1000, ytrain)
-# xtest, ytest = preprocessing.spWin(xtest, 1000, ytest)
 # # print(xtrain.shape)
 # xtrain = np.resize(xtrain,(xtrain.shape[0],60,500))
 # xtest = np.resize(xtest,(xtest.shape[0],60,500))
@@ -92,10 +91,10 @@ score = machineLearning.knn(xtrain,ytrain,xtest,ytest, kval = [1, 50, 2], flag =
 
 m = score.max()
 ix = (score.argmax()*2)+1
-text = "%s 1s Signal PCA withouth normalization/standardization signals \n \
-Feature extraction: Spectrum, all freq \n \
+text = "%s 1s Signal withouth normalization/standardization \n \
+Feature extraction: Spectrum ALL Frequencies \n \
 With KNN, Task: %s \n \
 kval from 1 to 50 \n \
 max val acc: %.4f, k max val: %d"%(method,task,m,ix)
 
-log.wlog("log_server_knn.txt",text = text, flag = 1)
+log.wlog("log_knn.txt",text = text, flag = 1)

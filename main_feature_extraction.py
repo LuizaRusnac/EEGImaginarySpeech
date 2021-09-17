@@ -3,10 +3,10 @@ import featureExtr
 import preprocessing
 from scipy.ndimage import gaussian_filter
 
-xtrain = np.load(r"Xtrain_pca.npy")
-xtest = np.load(r"Xtest_pca.npy")
-ytrain = np.load(r"ytrain_pca.npy")
-ytest = np.load(r"ytest_pca.npy")
+xtrain = np.load(r"Xtrain.npy")
+xtest = np.load(r"Xtest.npy")
+ytrain = np.load(r"ytrain.npy")
+ytest = np.load(r"ytest.npy")
 
 # xtrain = np.load(r"xfdbtrain.npy")
 # xtest = np.load(r"xfdbtest.npy")
@@ -41,7 +41,7 @@ print(xftest)
 # 	xctest[i,:,:] = np.corrcoef(xf)
 
 
-np.save(r"xftrain_pca.npy",xftrain)
-np.save(r"xftest_pca.npy",xftest)
-np.save(r"yftrain_pca.npy",yftrain)
-np.save(r"yftest_pca.npy",yftest)
+np.save(r"xftrain.npy",xftrain)
+np.save(r"xftest.npy",xftest)
+np.save(r"yftrain.npy",yftrain)
+np.save(r"yftest.npy",yftest)

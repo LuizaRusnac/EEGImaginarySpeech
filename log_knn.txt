@@ -1,0 +1,66 @@
+
+16-Sep-2021 (11:31:26)
+PCA 1s Signal PCA withouth normalization/standardization signals 
+!!!Eliminating first 2 comp where the correlation between comp 1 and comp 2 is higher than 0.97!!!
+ Feature extraction: Time series
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2101, k max val: 7
+
+
+16-Sep-2021 (13:25:45)
+PCA 1s Signal PCA withouth normalization/standardization signals 
+ Feature extraction: ALL PCA components
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1031, k max val: 1
+
+
+16-Sep-2021 (13:34:39)
+PCA 1s Signal PCA withouth normalization/standardization signals 
+ Feature extraction: PCA components - from 2 to 62 (total 60)
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1005, k max val: 7
+
+
+16-Sep-2021 (13:43:50)
+PCA 1s Signal PCA withouth normalization/standardization signals 
+ Feature extraction: Time series (I think the good data) 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2101, k max val: 7
+
+
+16-Sep-2021 (13:53:15)
+PCA 1s Signal PCA withouth normalization/standardization signals 
+ Feature extraction: Time series (Eliminated first 2 comp from ALL signals) 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.0928, k max val: 1
+
+
+16-Sep-2021 (13:59:02)
+No Filter 1s Signal withouth normalization/standardization 
+ Feature extraction: Time series 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2062, k max val: 7
+
+
+16-Sep-2021 (14:09:14)
+PCA 1s PCA Signal withouth normalization/standardization 
+ Eliminating components only where first 2 comp correlation > 0.97 
+ Feature extraction: Spectrum ALL Frequencies
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2320, k max val: 5
+
+
+16-Sep-2021 (14:18:39)
+No Filter 1s Signal withouth normalization/standardization 
+ Feature extraction: Spectrum ALL Frequencies 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2178, k max val: 1
+
