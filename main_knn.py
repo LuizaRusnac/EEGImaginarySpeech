@@ -7,20 +7,20 @@ from preprocessing import sgnStd, sgnNorm, featureStd
 import matplotlib.pyplot as plt
 import numpy.matlib
 
-method = 'No Filter'
+method = 'PCA'
 task = 'no task'
 
 if method == 'PCA':
-	xtrain = np.load(r"xftrain_pca.npy")
-	xtest = np.load(r"xftest_pca.npy")
-	ytrain = np.load(r"yftrain_pca.npy")
-	ytest = np.load(r"yftest_pca.npy")
+	xtrain = np.load(r"xftrain_pca_art3.npy")
+	xtest = np.load(r"xftest_pca_art3.npy")
+	ytrain = np.load(r"yftrain_pca_art3.npy")
+	ytest = np.load(r"yftest_pca_art3.npy")
 
 if method == 'No Filter':
-	xtrain = np.load(r"xftrain.npy")
-	xtest = np.load(r"xftest.npy")
-	ytrain = np.load(r"yftrain.npy")
-	ytest = np.load(r"yftest.npy")
+	xtrain = np.load(r"xftrain_art3.npy")
+	xtest = np.load(r"xftest_art3.npy")
+	ytrain = np.load(r"yftrain_art3.npy")
+	ytest = np.load(r"yftest_art3.npy")
 	# gen = np.load('generated_pca.npy')
 	# ygen = np.load('generate_pca_labels.npy')
 	# ygen = np.reshape(ygen,(len(ygen),1))
@@ -91,10 +91,11 @@ score = machineLearning.knn(xtrain,ytrain,xtest,ytest, kval = [1, 50, 2], flag =
 
 m = score.max()
 ix = (score.argmax()*2)+1
-text = "%s 1s Signal withouth normalization/standardization \n \
+text = "%s 4s Signal withouth normalization/standardization art3 v2 \n \
+PCA eliminated comp where corr(comp,heo)>0.97  \n \
 Feature extraction: Spectrum ALL Frequencies \n \
 With KNN, Task: %s \n \
 kval from 1 to 50 \n \
 max val acc: %.4f, k max val: %d"%(method,task,m,ix)
 
-log.wlog("log_knn.txt",text = text, flag = 1)
+log.wlog("log_server_knn.txt",text = text, flag = 1)

@@ -18,7 +18,7 @@ import preprocessing
 import matplotlib.pyplot as plt
  
 # define the standalone discriminator model
-def define_discriminator(in_shape=(28,28,1)):
+def define_discriminator(in_shape=(62,62,1)):
 	model = Sequential()
 	# downsample
 	model.add(Conv2D(128, (3,3), strides=(2,2), padding='same', input_shape=in_shape))
@@ -31,7 +31,7 @@ def define_discriminator(in_shape=(28,28,1)):
 	model.add(Dropout(0.4))
 	# model.add(Dense(6272, activation = 'relu'))
 	model.summary()
-	model.add(Dense(11, activation='sigmoid'))
+	model.add(Dense(1, activation='sigmoid'))
 	# compile model
 	opt = optimizers.Adam(lr=0.0002, beta_1=0.5)
 	model.compile(loss='binary_crossentropy', optimizer=opt, metrics=['accuracy'])
@@ -41,18 +41,18 @@ def define_discriminator(in_shape=(28,28,1)):
 def define_generator(latent_dim):
 	model = Sequential()
 	# foundation for 7x7 image
-	n_nodes = 128 * 7 * 7
+	n_nodes = 128 * 31 * 31
 	model.add(Dense(n_nodes, input_dim=latent_dim))
 	model.add(LeakyReLU(alpha=0.2))
-	model.add(Reshape((7, 7, 128)))
+	model.add(Reshape((31, 31, 128)))
 	# upsample to 14x14
-	model.add(Conv2DTranspose(128, (4,4), strides=(2,2), padding='same'))
+	model.add(Conv2DTranspose(128, (2,2), strides=(2,2), padding='same'))
 	model.add(LeakyReLU(alpha=0.2))
 	# upsample to 28x28
-	model.add(Conv2DTranspose(128, (4,4), strides=(2,2), padding='same'))
+	model.add(Conv2DTranspose(128, (2,2), strides=(1,1), padding='same'))
 	model.add(LeakyReLU(alpha=0.2))
 	# generate
-	model.add(Conv2D(1, (7,7), activation='tanh', padding='same'))
+	model.add(Conv2D(1, (31,31), activation='tanh', padding='same'))
 	return model
  
 # define the combined generator and discriminator model, for updating the generator
@@ -73,21 +73,24 @@ def define_gan(generator, discriminator):
 # load fashion mnist images
 def load_real_samples():
 	# load dataset
-<<<<<<< HEAD
-	trainX = np.load(r"C:\D\Doctorat\EEGImaginarySpeech\Xtrain_pca.npy")
-	trainy = np.load(r"C:\D\Doctorat\EEGImaginarySpeech\ytrain_pca.npy")
-	trainX = trainX[np.ravel(trainy==0)]
-=======
-	trainX = np.load(r"D:\TheodorRusnac\luiza_scripts\xftrain_pca.npy")
-	trainy = np.load(r"D:\TheodorRusnac\luiza_scripts\ytrain_pca.npy")
-	X = trainX[np.ravel(trainy==0)]
->>>>>>> 93a970b3361893b2011f4202d740841cb24b5916
+	# trainX = np.load(r"C:\D\Doctorat\EEGImaginarySpeech\Xtrain_pca.npy")
+	# trainy = np.load(r"C:\D\Doctorat\EEGImaginarySpeech\ytrain_pca.npy")
+	# trainX = trainX[np.ravel(trainy==0)]
+	trainX = np.load(r"xftrain_pca_art3.npy")
+	trainy = np.load(r"xftrain_pca_art3.npy")
+	# X = trainX[np.ravel(trainy==0)]
 	# expand to 3d, e.g. add channels
-	X = np.resize(X,(X.shape[0],28,28))
+	# X = np.resize(X,(X.shape[0],28,28))
 	# convert from ints to floats
 	# X = X.astype('float32')
 	# scale from [0,255] to [-1,1]
-	X = preprocessing.featureNorm(X)
+	# X = preprocessing.featureNorm(X)
+	# X = trainX
+	X = np.zeros((trainX.shape[0],trainX.shape[1],trainX.shape[1]))
+	for i in range(len(trainX)):
+		X[i,:,:] = np.cov(trainX[i,:,:]);
+	print("************Dim Xtrain = **************")
+	print(trainX.shape)
 	X = X.reshape((-1,X.shape[1],X.shape[2],1))
 
 	return X
@@ -121,7 +124,7 @@ def generate_fake_samples(generator, latent_dim, n_samples):
 	return X, y
  
 # train the generator and discriminator
-def train(g_model, d_model, gan_model, dataset, latent_dim, n_epochs=100, n_batch=128):
+def train(g_model, d_model, gan_model, dataset, latent_dim, n_epochs=1, n_batch=128):
 	bat_per_epo = int(dataset.shape[0] / n_batch)
 	half_batch = int(n_batch / 2)
 	# manually enumerate epochs
@@ -152,7 +155,6 @@ def train(g_model, d_model, gan_model, dataset, latent_dim, n_epochs=100, n_batc
 			print('>%d, %d/%d, d1=%.3f, d2=%.3f g=%.3f ---- acc1=%.4f, acc2=%.4f, accg=%.4f' %
 				(i+1, j+1, bat_per_epo, d_loss1, d_loss2, g_loss,acc1,acc2,accg))
 	# save the generator model
-<<<<<<< HEAD
 	g_model.save('generator.h5')
 
 def save_plot(examples, n):
@@ -166,7 +168,6 @@ def save_plot(examples, n):
 		pyplot.imshow(examples[i, :, :, 0])
 	pyplot.show()
  
-=======
 	gan_model.save('generator.h5')
 
 def save_plot(examples, n, name):
@@ -181,7 +182,6 @@ def save_plot(examples, n, name):
 	plt.show()
 	plt.save(name)
 
->>>>>>> 93a970b3361893b2011f4202d740841cb24b5916
  
 # size of the latent space
 latent_dim = 100
@@ -201,7 +201,7 @@ train(generator, discriminator, gan_model, dataset, latent_dim)
 # generate images
 latent_points = generate_latent_points(100, 100)
 # specify labels
-labels = np.asarray([x for _ in range(2) for x in range(2)])
+labels = np.asarray([x for _ in range(2) for x in range(50)])
 # generate images
 X  = gan_model.predict([latent_points, labels])
 

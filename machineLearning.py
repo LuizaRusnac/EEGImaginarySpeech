@@ -33,8 +33,9 @@ def knn(xtrain,ytrain,xtest,ytest, kval = [1], flag = 0):
 		clf = neighbors.KNeighborsClassifier(kval[0], weights='distance')
 		clf.fit(xtrain, ytrain)
 		score = clf.score(xtest,ytest)
+		predict = clf.predict(xtest)
 		print("---Accuracy: %s ---" %score)
-		return score
+		return score, predict
 
 	else:
 		if len(kval)==2:

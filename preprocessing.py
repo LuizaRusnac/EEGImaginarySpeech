@@ -227,6 +227,24 @@ def mat3d2mat2d(x):
 
 	return xm
 
+def mat2d2mat3d(x,n,m):
+	"""
+	This function reshape the 3D matrix x into a 2D matrix.
+
+	Input data:
+		x - A 2D matrix
+
+	Output data:
+		xm - A 3D matrix
+
+	"""
+	dim = x.shape
+	xm = np.zeros((dim[0],n,m))
+	for i in range(dim[0]):
+	    xm[i,:,:] = np.reshape(x[i,:],(1,n,m))
+
+	return xm
+
 def spWin(x, window, y=None):
 	"""
 	This function split a matrix x of dimension [nr. observations x nr. channels x nr. samples] into a matrix with dimension 
@@ -266,3 +284,73 @@ def spWin(x, window, y=None):
 		return xsplit,ysplit
 	else:
 		return xsplit
+
+def featureNormRange(X, minim = None, maxim = None, flag = 0, rng = [-1, 1]):
+	"""
+	This function transform the EEG signal space into range [0, 1] over the features.
+
+	Input data:
+		X - EEG signals with dimension [nr. observations x nr. features] or [nr. observations x nr. channels x nr. features]
+		minim - if exists, the values from X will be normalized using this values of minim. Dimension: [1 x nr. features] or
+		[nr. channels x nr. features]
+		maxim - if exists, the values from X will be normalized using this values of maxim. Dimension: [1 x nr. features] or
+		[nr. channels x nr. features]
+		flag - flag takes values 0 and 1, 0 if the user don't want to return the values of minim and maxim and 1 if the user
+		wich to reurn the minim and maxim values
+
+	IMPORTANT: The function MUST receive minim AND maxim. If one is given, the other must be given too!!!
+
+	Output data:
+		xnorm - Normalized X signal. Dimension: [nr. observations x nr. features] or [nr. observations x nr. channels x nr. features]
+
+	The function will compute the minim and maxim over the features (dimension: [1 x nr. features] or [nr. channels x nr. features])
+	and will transform the space using the minim and maxim values using equation:
+					X = (X - minim)/(maxim-minim)
+	"""
+
+	dim = X.shape
+
+	if ((minim is None) and not(maxim is None)) or (not(minim is None) and (maxim is None)):
+		raise AttributeError("The function MUST receive minim AND maxim. If one is given, the other must be given too!!!")
+
+	if not(minim is None) and not(maxim is None):
+		if minim.shape != maxim.shape:
+			raise AttributeError("Minim and maxim must be the same length")
+
+		if len(dim)==2:
+			if dim[1]!=minim.shape[1]:
+				raise AttributeError("X features and minim must be the same length")
+
+			if dim[1]!=maxim.shape[1]:
+				raise AttributeError("X features and maxim must be the same length")
+
+			xnorm = (X - numpy.matlib.repmat(minim,dim[0],1))/numpy.matlib.repmat((maxim-minim),dim[0],1)*(rng[1]-rng[0]) + rng[0]
+			return xnorm
+
+		if len(dim)==3:
+			if dim[1]!=minim.shape[0] or dim[2]!=minim.shape[1]:
+				raise AttributeError("X features and minim/maxim must be the same length")
+
+			xnorm = (X - minim)/(maxim-minim)*(rng[1]-rng[0]) + rng[0]
+			return xnorm
+	else:
+		if len(dim)==2:
+			minim = np.reshape(X.min(axis=0),(1,dim[1]))
+			maxim = np.reshape(X.max(axis=0),(1,dim[1]))
+
+			xnorm = (X - numpy.matlib.repmat(minim,dim[0],1))/numpy.matlib.repmat((maxim-minim),dim[0],1)*(rng[1]-rng[0]) + rng[0]
+
+		elif len(dim)==3:
+			minim = X.min(axis=0)
+			maxim = X.max(axis=0)
+
+			xnorm = (X - minim)/(maxim-minim)*(rng[1]-rng[0]) + rng[0]
+		else:
+			raise ValueError("Too many dimensions for X!")
+
+		if flag==0:
+			return xnorm
+		elif flag==1:
+			return xnorm, minim, maxim
+		else:
+			raise ValueError("It's not a valid flag value!")

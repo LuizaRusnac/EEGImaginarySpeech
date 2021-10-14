@@ -61,14 +61,14 @@ def eegGR(X, ch = None, name = 'eegGR.png', ch_labels = [0], path = None, flag =
 
 	if ch is None:
 		for i, reverse in zip(range(len(X)),range(len(X)-1,0,-1)):
-			plt.plot(X[i,:]+(maxim*reverse))
+			plt.plot(time,X[i,:]+(maxim*reverse))
 			if ch_labels[0] != 0:
 				plt.text(-1,maxim*reverse,ch_labels[i])
 	else:	
 		if len(ch)==1:
 			if ch[0]<0:
 				for i, reverse in zip(range(len(X)+ch[0]),range(len(X)+ch[0],0,-1)):
-					plt.plot(X[i,:]+(maxim*reverse))
+					plt.plot(time,X[i,:]+(maxim*reverse))
 					if ch_labels[0] != 0:
 						if (len(X)!=len(ch_label)):
 							raise ValueError("Different lengtsh for X and ch_label")

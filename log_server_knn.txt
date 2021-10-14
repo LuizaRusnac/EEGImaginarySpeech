@@ -594,3 +594,76 @@ PCA 1s Signal PCA withouth normalization/standardization signals
  kval from 1 to 50 
  max val acc: 0.2268, k max val: 1
 
+
+
+
+
+19-Sep-2021 (19:22:55)
+PCA 1s Signal withouth normalization/standardization 
+ PCA eliminated comp where corr(comp,heo)>0.9 
+Feature extraction: Spectrum ALL Frequencies 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1920, k max val: 19
+
+
+19-Sep-2021 (19:30:05)
+PCA 1s Signal withouth normalization/standardization 
+ PCA eliminated comp where corr(comp,heo)>0.97 
+Feature extraction: Spectrum ALL Frequencies 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1933, k max val: 3
+
+
+19-Sep-2021 (19:32:23)
+No Filter 1s Signal withouth normalization/standardization 
+ # PCA eliminated comp where corr(comp,heo)>0.97 
+Feature extraction: Spectrum ALL Frequencies 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1856, k max val: 5
+
+
+19-Sep-2021 (19:33:54)
+No Filter 4s Signal withouth normalization/standardization art3 v2 
+ Feature extraction: Spectrum ALL Frequencies 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.2165, k max val: 1
+
+
+19-Sep-2021 (19:41:06)
+PCA 1s Signal withouth normalization/standardization art3 v2 
+ PCA eliminated comp where corr(comp,heo)>0.97 
+Feature extraction: Spectrum ALL Frequencies 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1920, k max val: 29
+
+
+19-Sep-2021 (20:10:05)
+No Filter 1s Signal withouth normalization/standardization art3 v2 
+ Feature extraction: Spectrum ALL Frequencies 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1985, k max val: 1
+
+
+19-Sep-2021 (20:20:48)
+PCA 4s Signal withouth normalization/standardization art3 v2 
+ PCA eliminated comp where corr(comp,heo)>0.97  
+ Feature extraction: Spectrum ALL Frequencies 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1907, k max val: 1
+
+
+27-Sep-2021 (13:18:53)
+PCA 4s Signal withouth normalization/standardization art3 v2 
+ PCA eliminated comp where corr(comp,heo)>0.97  
+ Feature extraction: Spectrum ALL Frequencies 
+ With KNN, Task: no task 
+ kval from 1 to 50 
+ max val acc: 0.1907, k max val: 1
+

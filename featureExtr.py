@@ -96,7 +96,7 @@ def spectrumChn(x, fs = 1000, freq = None, nfft = None):
 
     if freq is None:
         freq = np.empty((1),dtype = int)
-        freq[0] = int(x.shape[2]/2)
+        freq[0] = int(nfft/2)
     else:
         if len(freq)==1:
             freq[0] = int((nfft/fs)*freq[0])
@@ -113,7 +113,7 @@ def spectrumChn(x, fs = 1000, freq = None, nfft = None):
         xf = np.zeros((x.shape[0],x.shape[1],freq[1]-freq[0]))
 
     for rec,i in zip(x,range(len(x))):
-        fft = np.fft.fft(rec)
+        fft = np.fft.fft(rec, n=nfft)
         if len(freq)==1:
             fft = np.abs(fft[:,:freq[0]])
         else:

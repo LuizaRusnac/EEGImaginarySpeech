@@ -3,18 +3,18 @@ import featureExtr
 import preprocessing
 from scipy.ndimage import gaussian_filter
 
-xtrain = np.load(r"Xtrain.npy")
-xtest = np.load(r"Xtest.npy")
-ytrain = np.load(r"ytrain.npy")
-ytest = np.load(r"ytest.npy")
+xtrain = np.load(r"Xtrain_pca_art3.npy")
+xtest = np.load(r"Xtest_pca_art3.npy")
+ytrain = np.load(r"ytrain_pca_art3.npy")
+ytest = np.load(r"ytest_pca_art3.npy")
 
 # xtrain = np.load(r"xfdbtrain.npy")
 # xtest = np.load(r"xfdbtest.npy")
 # ytrain = np.load(r"ytrain.npy")
 # ytest = np.load(r"ytest.npy")
 
-xtrain, yftrain = preprocessing.spWin(xtrain, window=1000, y=ytrain)
-xtest, yftest = preprocessing.spWin(xtest, window=1000, y=ytest)
+# xtrain, yftrain = preprocessing.spWin(xtrain, window=1000, y=ytrain)
+# xtest, yftest = preprocessing.spWin(xtest, window=1000, y=ytest)
 
 
 # for i in range(len(xtrain)):
@@ -41,7 +41,7 @@ print(xftest)
 # 	xctest[i,:,:] = np.corrcoef(xf)
 
 
-np.save(r"xftrain.npy",xftrain)
-np.save(r"xftest.npy",xftest)
-np.save(r"yftrain.npy",yftrain)
-np.save(r"yftest.npy",yftest)
+np.save(r"xftrain_pca_art3.npy",xftrain)
+np.save(r"xftest_pca_art3.npy",xftest)
+np.save(r"yftrain_pca_art3.npy",ytrain)
+np.save(r"yftest_pca_art3.npy",ytest)

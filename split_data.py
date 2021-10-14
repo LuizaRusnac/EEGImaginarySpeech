@@ -68,8 +68,8 @@ def split(X, y, test_nr = 0.2, flag = 0, nr_cls = None, indexes = 0):
 		ytest = np.empty((0))
 
 		if indexes==1:
-			idxtrain = np.empty((0))
-			idxtest = np.empty((0))
+			idxtrain = np.empty((0),dtype=int)
+			idxtest = np.empty((0),dtype=int)
 
 		for i in range(nr_cls):
 		    X_interm = X[np.ravel(y==i)]
