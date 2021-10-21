@@ -106,8 +106,8 @@ def define_gan(g_model, d_model):
 # load fashion mnist images
 def load_real_samples():
 	# load dataset
-	X = np.load(r"D:\TheodorRusnac\luiza_scripts\xtrain.npy")
-	trainy = np.load(r"D:\TheodorRusnac\luiza_scripts\ytrain.npy")
+	X = np.load(r"xtrain_1000.npy")
+	trainy = np.load(r"ytrain_1000.npy")
 	# X = trainX[np.ravel(trainy==0)]
 	# expand to 3d, e.g. add channels
 	# X = np.resize(X,(X.shape[0],60,500))
@@ -171,7 +171,7 @@ def generate_fake_samples(generator, latent_dim, n_samples):
 	return [images, labels_input], y
  
 # train the generator and discriminator
-def train(g_model, d_model, gan_model, dataset, latent_dim, n_epochs=100, n_batch=128):
+def train(g_model, d_model, gan_model, dataset, latent_dim, n_epochs=1, n_batch=128):
 	bat_per_epo = int(dataset[0].shape[0] / n_batch)
 	half_batch = int(n_batch / 2)
 	# manually enumerate epochs

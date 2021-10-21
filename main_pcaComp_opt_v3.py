@@ -25,7 +25,7 @@ ix[0] = 5
 # xtest = preprocessing.featureNorm(xtest)
 
 rnd = np.random.permutation(len(xtrain))
-nr_tr = int(0.5*len(xtrain))
+nr_tr = int(0.8*len(xtrain))
 xtr = xtrain[rnd[:nr_tr]]
 ytr = ytrain[rnd[:nr_tr]]
 xval = xtrain[rnd[nr_tr:]]
@@ -51,10 +51,19 @@ print(xtest.shape)
 
 keep = [0, len(xtr[0])]
 
-# xhattr, comp_tr = pca.allDataPca(xtr, keep = keep, flag = 0)
-# xhatval, comp_val = pca.allDataPca(xval, keep = keep, flag = 0)
-# xhattest, comp_tst = pca.allDataPca(xtest, keep = keep, flag = 0)
-
+xhattr, comp_tr = pca.allDataPca(xtr, keep = keep, flag = 0)
+xhatval, comp_val = pca.allDataPca(xval, keep = keep, flag = 0)
+xhattest, comp_tst = pca.allDataPca(xtest, keep = keep, flag = 0)
+xhattr = pca.allDataTransf(xtr, comp_tr, keep)
+xhattest = pca.allDataTransf(xtest, comp_tst, keep)
+xftrain = preprocessing.mat3d2mat2d(xhattr)
+xftst = preprocessing.mat3d2mat2d(xhattest)
+yftrain = np.ravel(ytr)
+yftst = np.ravel(ytest)
+score, predict = machineLearning.knn(xftrain,yftrain,xftst,yftst, kval = [5], flag = 1)
+print(yftrain)
+print("The first score withouth optimization:")
+print(score)
 
 D = np.random.normal(size=(62,1000))
 xhatvalant = np.random.normal(size=(len(xval),62,1000))
@@ -93,13 +102,13 @@ for it in range(epochs):
 
 	for i in range(len(predict)):
 		if predict[i]==yfval[i]:
-			D = D + 0.01 * xhatval[i,:,:]*(1-score)#*np.random.normal(size=(62,1000))#*(xhattstant[i,:,:])*xhattstant2[i,:,:]#np.random.normal(size=(62,1000))#*(1-xhattst[i,:,:])
+			D = D + 0.00001 * xhatval[i,:,:]*(1-score)#*np.random.normal(size=(62,1000))#*(xhattstant[i,:,:])*xhattstant2[i,:,:]#np.random.normal(size=(62,1000))#*(1-xhattst[i,:,:])
 		else:
-			D = D - 0.01 * (xhatval[i,:,:])*(1-score)#*np.random.normal(size=(62,1000))#*(xhattstant[i,:,:])*xhattstant2[i,:,:]#np.random.normal(size=(62,1000))#*(1-score)#*(1-xhattst[i,:,:])
+			D = D - 0.00001 * (xhatval[i,:,:])*(1-score)#*np.random.normal(size=(62,1000))#*(xhattstant[i,:,:])*xhattstant2[i,:,:]#np.random.normal(size=(62,1000))#*(1-score)#*(1-xhattst[i,:,:])
 
 
-	D = preprocessing.featureNormRange(D,rng=[-10,10])
-	#D = preprocessing.featureNorm(D)#+np.random.normal(size=(62,1000))
+	# D = preprocessing.featureNormRange(D,rng=[-10,10])
+	D = preprocessing.featureNorm(D)#+np.random.normal(size=(62,1000))
 	Ds = np.argsort(D,axis=0)
 	print(Ds)
 
